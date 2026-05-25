@@ -8,9 +8,9 @@ import Login from './components/Login'
 import ProblemType from './components/ProblemType'
 import ProtectedRoute from './components/ProtectedRoute'
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 export default function App() {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <Home />
