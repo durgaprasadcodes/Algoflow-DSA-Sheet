@@ -65,7 +65,7 @@ export default function ProblemType() {
             />
             {
                 problems ? (
-                    problems.filter((problem) => problem.problem_name.toLowerCase().includes(normalizedSearch)).map((problem) => (
+                    problems.filter((problem) => problem.searchable.includes(normalizedSearch)).map((problem) => (
                         <div className="problem" key={problem.id}>
 
 
