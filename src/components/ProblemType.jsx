@@ -16,9 +16,7 @@ export default function ProblemType() {
         year: null
     });
 
-    const curr_time = new Date().toLocaleTimeString();
-    const curr_date = new Date().toLocaleDateString();
-    const curr_year = new Date().getFullYear();
+
     // Store checked problem IDs
     const [checkedItems, setCheckedItems] = useState({})
     const [searchTerm, setSearchTerm] = useState('')
@@ -34,6 +32,9 @@ export default function ProblemType() {
 
     // Handle checkbox change
     const handleCheckboxChange = (id) => {
+        const curr_time = new Date().toLocaleTimeString();
+        const curr_date = new Date().toLocaleDateString();
+        const curr_year = new Date().getFullYear();
         const updatedCheckedItems = {
             ...checkedItems,
             [id]: !checkedItems[id]
