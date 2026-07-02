@@ -1,238 +1,293 @@
+/* ================================
+        PREMIUM NAVBAR
+================================ */
 
-/* ════════════════════════════════════════════════════════════
-   NAVBAR SHELL
-   ════════════════════════════════════════════════════════════ */
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 200;
+  z-index: 999;
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: var(--space-8);
+  align-items: center;
 
-  padding: 0 var(--space-8);
-  height: 68px;
+  height: 74px;
+  padding: 0 42px;
 
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, .72);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
 
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
 
-  /* Subtle top accent line */
   box-shadow:
-    0 1px 0 0 var(--color-border),
-    var(--shadow-sm);
+    0 1px 0 rgba(255, 255, 255, .8) inset,
+    0 12px 40px rgba(15, 23, 42, .05);
+
+  transition: .35s ease;
 }
 
-/* Thin blue top strip */
+/* top highlight */
+
 .navbar::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--gradient-primary);
-  opacity: 0.7;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(59, 130, 246, .5),
+      transparent);
 }
 
-/* ════════════════════════════════════════════════════════════
-   LOGO
-   ════════════════════════════════════════════════════════════ */
+
+/* ==========================
+          LOGO
+========================== */
+
 .logo {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 12px;
   text-decoration: none;
-  flex-shrink: 0;
 }
 
 .logo img {
-  width: 34px;
-  height: 34px;
-  object-fit: contain;
-  border-radius: var(--radius-sm);
-  /* Subtle glow on the icon */
-  filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.30));
-  transition: transform var(--duration-base) var(--ease-spring),
-              filter var(--duration-base) var(--ease-out);
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 12px;
+
+  transition:
+    transform .45s cubic-bezier(.22, 1, .36, 1),
+    filter .35s ease;
+
+  filter:
+    drop-shadow(0 8px 18px rgba(37, 99, 235, .18));
 }
 
 .logo:hover img {
-  transform: rotate(-6deg) scale(1.1);
-  filter: drop-shadow(0 4px 14px rgba(37, 99, 235, 0.45));
+
+  transform:
+    rotate(-6deg) scale(1.08);
+
+  filter:
+    drop-shadow(0 12px 28px rgba(37, 99, 235, .28));
 }
 
 .logo h1 {
-  font-family: var(--font-display);
-  font-size: var(--text-base);
+
+  font-size: 18px;
   font-weight: 800;
-  letter-spacing: 0.12em;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  user-select: none;
-  white-space: nowrap;
+  letter-spacing: .08em;
+
+  color: #111827;
 }
 
-/* ════════════════════════════════════════════════════════════
-   NAV LINKS (centre)
-   ════════════════════════════════════════════════════════════ */
+
+
+/* ==========================
+        NAV LINKS
+========================== */
+
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  /* Push to true centre even when auth block is narrow */
+
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .nav-links a {
+
   position: relative;
+
   display: flex;
   align-items: center;
-  padding: var(--space-2) var(--space-5);
-  height: 36px;
-  border-radius: var(--radius-full);
 
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
+  padding: 11px 18px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--gray-500);
+
+  color: #6B7280;
 
   transition:
-    color var(--duration-fast) var(--ease-out),
-    background var(--duration-fast) var(--ease-out);
+    all .28s cubic-bezier(.22, 1, .36, 1);
 }
 
-/* Hover state */
 .nav-links a:hover {
-  color: var(--gray-800);
-  background: var(--gray-100);
+
+  color: #111827;
+
+  background: rgba(0, 0, 0, .04);
+
+  transform: translateY(-1px);
 }
 
-/* Active / current page */
 .nav-links a.active {
-  color: var(--blue-700);
-  background: var(--blue-50);
+
+  color: #111827;
+
+  background: white;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, .08);
 }
 
-/* Active underline dot */
 .nav-links a.active::after {
-  content: '';
+
+  content: "";
+
   position: absolute;
-  bottom: 4px;
+
   left: 50%;
+  bottom: 6px;
+
   transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  border-radius: var(--radius-full);
-  background: var(--blue-500);
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #2563EB;
 }
 
-/* ════════════════════════════════════════════════════════════
-   AUTH BLOCK (right)
-   ════════════════════════════════════════════════════════════ */
+
+
+/* ==========================
+       LOGIN BUTTON
+========================== */
+
 .auth-links {
+
   display: flex;
   align-items: center;
-  flex-shrink: 0;
   margin-left: auto;
 }
 
-/* ── Login link — pill button ───────────────────────────── */
 .auth-links a {
-  display: inline-flex;
+
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-6);
-  height: 38px;
-  border-radius: var(--radius-full);
 
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--white);
+  height: 42px;
+  padding: 0 22px;
 
-  background: var(--gradient-primary);
-  box-shadow: var(--shadow-blue);
+  border-radius: 999px;
+
+  background: #111827;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
 
   transition:
-    transform var(--duration-base) var(--ease-spring),
-    box-shadow var(--duration-base) var(--ease-out),
-    filter var(--duration-base) var(--ease-out);
+    all .3s cubic-bezier(.22, 1, .36, 1);
+
+  box-shadow:
+    0 10px 30px rgba(17, 24, 39, .15);
 }
 
 .auth-links a:hover {
+
   transform: translateY(-2px);
-  box-shadow: var(--shadow-blue-lg);
-  filter: brightness(1.06);
+
+  box-shadow:
+    0 18px 40px rgba(17, 24, 39, .20);
+
+  background: #1F2937;
 }
 
 .auth-links a:active {
+
   transform: translateY(0);
-  box-shadow: var(--shadow-blue);
 }
 
-/* ── Avatar icon (logged-in) ────────────────────────────── */
-.auth-links a .fas.fa-user {
-  font-size: var(--text-sm);
-}
 
-/* When it's the icon-only avatar button, make it a circle */
-.auth-links a:has(.fas.fa-user) {
-  width: 38px;
-  height: 38px;
+/* ==========================
+      Avatar
+========================== */
+
+.avatar-btn {
+
+  width: 42px;
+  height: 42px;
+
   padding: 0;
-  border-radius: var(--radius-full);
+
+  border-radius: 50%;
 }
 
-/* Fallback for browsers without :has() */
-.auth-links .avatar-btn {
-  width: 38px;
-  height: 38px;
-  padding: 0;
-  border-radius: var(--radius-full);
-}
 
-/* ════════════════════════════════════════════════════════════
-   RESPONSIVE
-   ════════════════════════════════════════════════════════════ */
-@media (max-width: 768px) {
+
+/* ==========================
+      MOBILE
+========================== */
+
+@media(max-width:768px) {
   .navbar {
-    padding: 0 var(--space-4);
-    height: 60px;
-  }
-
-  /* Move nav links out of absolute centre on small screens */
-  .nav-links {
-    position: static;
-    transform: none;
-    gap: var(--space-1);
-  }
-
-  .nav-links a {
-    padding: var(--space-2) var(--space-3);
-    font-size: var(--text-xs);
+    padding: 0 16px;
+    height: 64px;
   }
 
   .logo h1 {
-    display: none; /* icon only on mobile */
+    display: none;
+  }
+
+  .logo img {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+  }
+
+  .nav-links {
+    position: static;
+    transform: none;
+    gap: 6px;
+  }
+
+  .nav-links a {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .auth-links a {
+    height: 36px;
+    padding: 0 16px;
+    font-size: 13px;
   }
 }
 
-@media (max-width: 480px) {
-  .nav-links a span {
-    display: none;
+@media(max-width:480px) {
+  .navbar {
+    padding: 0 12px;
   }
-  .auth-links  {
-    margin-right: 40px;
-    transform: translateX(-25px);
+
+  .nav-links {
+    gap: 2px;
+  }
+
+  .nav-links a {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .auth-links a {
+    height: 34px;
+    padding: 0 12px;
+    font-size: 12px;
   }
 }

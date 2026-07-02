@@ -1,14 +1,20 @@
-import React from 'react'
-import useState from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import "./all_css_codes/Profile.css"
 import { Line } from 'react-chartjs-2';
 import demo from '../assets/demo.jpg'
+import { useEffect, useState } from 'react';
+import Pagination from './Pagination';
+import { data as problemsData } from '../data/data';
 
 export default function Profile() {
     const navigate = useNavigate();
     const data = JSON.parse(localStorage.getItem("user_info"));
-    const [img, setImg] = React.useState(demo);
+    const completed = JSON.parse(localStorage.getItem("completed")) || 0;
+
+    const totalProblems = Object.values(problemsData).reduce(
+        (acc, curr) => acc + (Array.isArray(curr) ? curr.length : 0),
+        0
+    );
 
     const handleLogout = () => {
         const ok = confirm(
@@ -20,56 +26,61 @@ export default function Profile() {
         }
     };
 
-    function handleImageChange(e) {
-        const file = e.target.files[0];
-        const url = URL.createObjectURL(file);
-        setImg(url);
-        setUser((prevUser) => ({ ...prevUser, profilePicture: url }));
-    }
+    const HandleUpdateProfile = () => {
+        const ok = confirm(
+            "Are you sure you want to update your profile?"
+        );
+        if (ok) {
+            const Type = prompt('Enter Your Choice \n 1. Update Name \n 2. Update Email')
+            if (Type == 1) {
+                const update_name = prompt("Enter your name");
+                localStorage.setItem("user_info", JSON.stringify({ name: update_name, email: data?.email, isAuthenticated: true }));
+            }
+            else if (Type == 2) {
+                const update_email = prompt("Enter your email");
+                localStorage.setItem("user_info", JSON.stringify({ name: data?.name, email: update_email, isAuthenticated: true }));
+            }
+            navigate("/profile", { replace: true });
+        }
+    };
+
     return (
-        <div className="profile">
+        <div className="profile-container">
             <div className="profile-nav">
-                <Link to='/'>← Go to Home</Link>
-                <button onClick={() => navigate(-1)}>← Go Back</button>
+                <Link to='/' className="nav-link-btn">← Go to Home</Link>
+                <button onClick={() => navigate(-1)} className="nav-back-btn">← Go Back</button>
             </div>
             <div className="profile-part">
                 <div className="profile-img">
-                    <input
-                        type="file"
-                        id="file-input"
-                        accept="image/*"
-                        onChange={handleImageChange}
-                        hidden
-                    />
-
-                    <label htmlFor="file-input">
-                        <img src={img} alt="Profile" />
-                    </label>
+                    <img src={demo} alt="demo-img" />
                 </div>
                 <div className="profile-part1">
-                    <div className="profile">
+                    <div className="profile-card">
                         <h1>{data?.name}</h1>
-                        <p>Email: {data?.email}</p>
-                        <p>Status: {data?.isAuthenticated ? "Authenticated" : "Not Authenticated"}</p>
-                        <button>Update Profile</button>
+                        <p className="profile-email">Email: {data?.email}</p>
+                        <p className="profile-status">
+                            Status: <span className={`status-badge ${data?.isAuthenticated ? 'active' : 'inactive'}`}>
+                                {data?.isAuthenticated ? "Active" : "Inactive"}
+                            </span>
+                        </p>
+                        <button className="update-btn" onClick={HandleUpdateProfile}>Update Profile</button>
                     </div>
-                    <div className="chart">
+                    <div className="progress">
                         <h2>Problem Solving Progress</h2>
-                        <div className="circle"></div>
-                        <div className="sloved-problems">100/750</div>
+                        <div className="complted-problems">
+                            <b>Total Solved Problems : <span>{completed}</span>/{totalProblems} </b>
+                        </div>
+                        <div className="progress-bar-container">
+                            <div className="progress-bar-fill" style={{ width: `${Math.min((completed / totalProblems) * 100, 100)}%` }}></div>
+                        </div>
                     </div>
                 </div>
                 <div className="profile-part2">
-                    {/* For Graphs Part */}
                     <h2>Recent Activity</h2>
-                    <ul>
-                        <li>Solved "Two Sum" problem</li>
-                        <li>Attempted "Longest Substring Without Repeating Characters"</li>
-                        <li>Viewed "Median of Two Sorted Arrays" problem</li>
-                    </ul>
+                    <Pagination />
                 </div>
             </div>
-            <button onClick={handleLogout}>Log Out</button>
+            <button className="logout-btn" onClick={handleLogout}>Log Out</button>
         </div>
     )
 }

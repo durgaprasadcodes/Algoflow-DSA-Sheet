@@ -49,28 +49,49 @@ export default function Login() {
         }
     }
     return (
-        <form className="authentication">
-            <ToastContainer autoClose={2000} pauseOnHover={false} />
-            <h1>Login Page</h1>
-            <img src={algoflow} alt="AlgoFlow Logo" />
-            <p>Welcome to AlgoFlow</p>
-            <label htmlFor="name" id='name-label'>Name :</label>
-            <input type="text"
-                id="name"
-                placeholder='User Name'
-                value={inputname}
-                onChange={(e) => setInputName(e.target.value.trim().toLowerCase())}
-                required
-            />
-            <label htmlFor="email" id='email-label'>Email :</label>
-            <input type="email"
-                id="email"
-                value={inputemail}
-                placeholder='User@gmail.com'
-                onChange={(e) => setInputEmail(e.target.value.trim().toLowerCase())}
-                required
-            />
-            <button onClick={handleSubmit} type="submit">Submit</button>
-        </form>
+        <div className="auth-border">
+            <form className="authentication" onSubmit={handleSubmit}>
+                <ToastContainer autoClose={2000} pauseOnHover={false} />
+
+                <img src={algoflow} alt="AlgoFlow Logo" />
+
+                <h2>Welcome To AlgoFlow</h2>
+
+
+                <div className="input-group">
+                    <label htmlFor="name">Username</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your username"
+                        value={inputname}
+                        onChange={(e) =>
+                            setInputName(e.target.value.trim().toLowerCase())
+                        }
+                        required
+                    />
+                </div>
+
+                <div className="input-group">
+                    <label htmlFor="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        value={inputemail}
+                        onChange={(e) =>
+                            setInputEmail(e.target.value.trim().toLowerCase())
+                        }
+                        required
+                    />
+                </div>
+
+                <button type="submit">
+                    Continue
+                </button>
+            </form>
+        </div>
     )
 }

@@ -9,51 +9,57 @@ import './all_css_codes/ProblemType.css'
 export default function ProblemType() {
     const { slug } = useParams()
     const problems = data[slug] || null;
-    // For Chart Data
-    const [chartData, setChartData] = useState({
-        time: null,
-        date: null,
-        year: null
-    });
-
 
     // Store checked problem IDs
     const [checkedItems, setCheckedItems] = useState({})
+    const [checkedProblems, setCheckedProblems] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
+    const [completed, setCompleted] = useState(0);
     const normalizedSearch = searchTerm.toLowerCase();
-    // Load from localStorage when component mounts
+
     useEffect(() => {
-        const savedData = localStorage.getItem(`checkedProblems-${slug}`)
+        const savedData = localStorage.getItem(`checkedProblemsIDS-${slug}`)
 
         if (savedData) {
             setCheckedItems(JSON.parse(savedData))
         }
     }, [slug])
 
-    // Handle checkbox change
-    const handleCheckboxChange = (id) => {
-        const curr_time = new Date().toLocaleTimeString();
-        const curr_date = new Date().toLocaleDateString();
-        const curr_year = new Date().getFullYear();
+    useEffect(() => {
+        const completed = JSON.parse(localStorage.getItem('completed')) || 0;
+        if (completed) {
+            setCompleted(completed)
+        }
+        const checkedProblems = JSON.parse(localStorage.getItem('checkedProblems')) || [];
+        if (checkedProblems) {
+            setCheckedProblems(checkedProblems)
+        }
+    }, [])
+
+    const handleCheckboxChange = (id, name) => {
+        const isCurrentlyChecked = checkedItems[id];
         const updatedCheckedItems = {
             ...checkedItems,
-            [id]: !checkedItems[id]
+            [id]: !isCurrentlyChecked,
         }
 
-        const updatedChartData = {
-            ...chartData,
-            time: curr_time,
-            date: curr_date,
-            year: curr_year
-        }
-        setChartData(updatedChartData);
+        const nextCompleted = isCurrentlyChecked ? completed - 1 : completed + 1;
+        setCompleted(nextCompleted);
+
+        const nextCheckedProblems = isCurrentlyChecked
+            ? checkedProblems.filter((problem) => problem !== name)
+            : [...checkedProblems, name];
+        setCheckedProblems(nextCheckedProblems);
+
         setCheckedItems(updatedCheckedItems)
 
         // Save to localStorage
-        localStorage.setItem(`checkedProblems-${slug}`, JSON.stringify(updatedCheckedItems))
-        localStorage.setItem("chartData", JSON.stringify(updatedChartData));
+        localStorage.setItem('checkedProblems', JSON.stringify(nextCheckedProblems))
+        localStorage.setItem('completed', JSON.stringify(nextCompleted))
+        localStorage.setItem(`checkedProblemsIDS-${slug}`, JSON.stringify(updatedCheckedItems))
     }
 
+    console.log(completed, checkedProblems)
     return (
         <div className="problem_list">
             <Navbar />
@@ -74,7 +80,7 @@ export default function ProblemType() {
                                 type="checkbox"
                                 id={`problem-${problem.id}`}
                                 checked={checkedItems[problem.id] || false}
-                                onChange={() => handleCheckboxChange(problem.id)}
+                                onChange={() => handleCheckboxChange(problem.id, problem.problem_name)}
                             />
 
                             <h1>{problem.problem_name}</h1>

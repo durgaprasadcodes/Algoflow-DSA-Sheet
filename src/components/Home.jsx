@@ -1,12 +1,14 @@
 // Home.jsx
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Navbar from "./Navbar";
 import "./all_css_codes/Home.css";
 import { Link } from "react-router-dom";
 import { DSA_TOPICS } from "../data/data_topics";
 import hero from '../assets/hero-img.png'
 import algoflow from '../assets/algoflow_icon.png';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
 
 export default function Home() {
 
@@ -143,8 +145,12 @@ export default function Home() {
 
                 <div className="home-right">
 
-                    <img className="reveal fade-right delay-2" src={hero} alt="Hero" />
-
+                    <DotLottieReact
+                        className="reveal fade-right delay-2 dotlottie-blob"
+                        src="https://lottie.host/73eb97cf-fbe4-4e52-986c-97066664bb38/8iX0s0tlsr.lottie"
+                        loop
+                        autoplay
+                    />
                 </div>
 
             </div>
