@@ -3,7 +3,6 @@
 Modern DSA preparation platform built with React + Vite featuring protected routes, smooth animations, reusable design systems, and SaaS-level UI.
 
 <div align='center'>
-    
     [🌏 Live Demo](https://algoflow-dsa-sheet.vercel.app/)
 
 </div>
