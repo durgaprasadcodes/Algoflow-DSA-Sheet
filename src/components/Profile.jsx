@@ -45,33 +45,35 @@ export default function Profile() {
     };
 
     return (
-        <div className="profile-container">
+        <div className="profile-container" >
             <div className="profile-nav">
-                <Link to='/' className="nav-link-btn">← Go to Home</Link>
                 <button onClick={() => navigate(-1)} className="nav-back-btn">← Go Back</button>
+                <h1>Profile Page</h1>
             </div>
             <div className="profile-part">
-                <div className="profile-img">
-                    <img src={demo} alt="demo-img" />
-                </div>
-                <div className="profile-part1">
-                    <div className="profile-card">
-                        <h1>{data?.name}</h1>
-                        <p className="profile-email">Email: {data?.email}</p>
-                        <p className="profile-status">
-                            Status: <span className={`status-badge ${data?.isAuthenticated ? 'active' : 'inactive'}`}>
-                                {data?.isAuthenticated ? "Active" : "Inactive"}
-                            </span>
-                        </p>
-                        <button className="update-btn" onClick={HandleUpdateProfile}>Update Profile</button>
+                <div className="main-profile">
+                    <div className="profile-img">
+                        <img src={demo} alt="demo-img" />
                     </div>
-                    <div className="progress">
-                        <h2>Problem Solving Progress</h2>
-                        <div className="complted-problems">
-                            <b>Total Solved Problems : <span>{completed}</span>/{totalProblems} </b>
+                    <div className="profile-part1">
+                        <div className="profile-card">
+                            <h1>{data?.name}</h1>
+                            <p className="profile-email">Email: {data?.email}</p>
+                            <p className="profile-status">
+                                Status: <span className={`status-badge ${data?.isAuthenticated ? 'active' : 'inactive'}`}>
+                                    {data?.isAuthenticated ? "Active" : "Inactive"}
+                                </span>
+                            </p>
+                            <button className="update-btn" onClick={HandleUpdateProfile}>Update Profile</button>
                         </div>
-                        <div className="progress-bar-container">
-                            <div className="progress-bar-fill" style={{ width: `${Math.min((completed / totalProblems) * 100, 100)}%` }}></div>
+                        <div className="progress">
+                            <h2>Problem Solving Progress</h2>
+                            <div className="complted-problems">
+                                <b>Total Solved Problems : <span>{completed}</span>/{totalProblems} </b>
+                            </div>
+                            <div className="progress-bar-container">
+                                <div className="progress-bar-fill" style={{ width: `${Math.min((completed / totalProblems) * 100, 100)}%` }}></div>
+                            </div>
                         </div>
                     </div>
                 </div>

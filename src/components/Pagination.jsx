@@ -3,7 +3,7 @@ import './all_css_codes/Pagination.css'
 export default function Pagination() {
     const [completed, setCompleted] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const allowedProblems = 10;
+    const allowedProblems = 5;
 
     useEffect(() => {
         const completed = JSON.parse(localStorage.getItem('checkedProblems')) || [];
@@ -21,27 +21,35 @@ export default function Pagination() {
         pages.push(i);
     }
     return (
-        <div className="pagination">
-            <div className="pagination-list">
-                {
-                    thispageItems.map((item, idx) => {
-                        return (
-                            <div className="activity" key={idx}>
-                                <p>{item}</p>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-            <div className="pagination-controls">
-                {
-                    pages.map((page, idx) => {
-                        return (
-                            <button key={idx} onClick={() => setCurrentPage(page)}>{page}</button>
-                        )
-                    })
-                }
-            </div>
-        </div>
+        <>
+            {
+                thispageItems.length > 0 ? (
+                    <div className="pagination">
+                        <div className="pagination-list">
+                            {
+                                thispageItems.map((item, idx) => {
+                                    return (
+                                        <div className="activity" key={idx}>
+                                            <p>{item}</p>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div className="pagination-controls">
+                            {
+                                pages.map((page, idx) => {
+                                    return (
+                                        <button key={idx} onClick={() => setCurrentPage(page)}>{page}</button>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                ) : (
+                    <p className="no-tasks">No problems solved yet!</p>
+                )
+            }
+        </>
     )
 }

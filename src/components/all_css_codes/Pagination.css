@@ -1,166 +1,201 @@
-/* ==========================================
-   PAGINATION & RECENT ACTIVITY STYLES
-========================================== */
+/* 
+========================================================================
+   PREMIUM $15,000 SAAS DASHBOARD - PAGINATION & ACTIVITY STYLES
+   Theme: Dark Navy, Glassmorphism, Cyan & Blue Glow
+   Author: Senior Frontend Engineer
+========================================================================
+*/
 
-.pagination-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  width: 100%;
+/* --- Local Design Tokens (Aligned with Profile page) --- */
+:root {
+    --pag-glass-bg: rgba(255, 255, 255, 0.02);
+    --pag-glass-bg-hover: rgba(255, 255, 255, 0.06);
+    --pag-glass-border: rgba(255, 255, 255, 0.08);
+    --pag-border-hover: rgba(6, 182, 212, 0.4);
+    --pag-text-primary: #f8fafc;
+    --pag-text-secondary: #94a3b8;
+    --pag-text-cyan: #22d3ee;
+    --pag-glow-cyan: rgba(6, 182, 212, 0.25);
+    --pag-transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.pagination-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  min-height: 240px; /* Prevent layout jump */
-}
-
-/* Activity item design */
-.pagination-list .activity {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  padding: var(--space-4) var(--space-5);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-xs);
-  transition: all var(--duration-base) var(--ease-out);
-}
-
-.pagination-list .activity:hover {
-  transform: translateY(-2px) translateX(2px);
-  border-color: var(--blue-200);
-  box-shadow: var(--shadow-sm);
-  background: linear-gradient(90deg, var(--white) 0%, var(--blue-50) 100%);
-}
-
-.activity-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-full);
-  background: var(--blue-100);
-  color: var(--blue-600);
-  font-size: var(--text-sm);
-  font-weight: 800;
-  flex-shrink: 0;
-  box-shadow: inset 0 1px 2px rgba(37, 99, 235, 0.1);
-}
-
-.pagination-list .activity p {
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin: 0;
-  letter-spacing: 0.01em;
-}
-
-/* Empty state design */
-.no-activity {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-12) var(--space-6);
-  background: var(--gray-50);
-  border: 1.5px dashed var(--color-border-mid);
-  border-radius: var(--radius-lg);
-  text-align: center;
-}
-
-.no-activity p {
-  color: var(--color-text-secondary);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  max-width: 320px;
-  line-height: 1.6;
-}
-
-/* Controls bar */
-.pagination-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--color-border);
-  gap: var(--space-4);
-}
-
-/* Navigation buttons (Prev/Next) */
-.control-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--gray-600);
-  background: var(--gray-100);
-  border: 1px solid transparent;
-  border-radius: var(--radius-md);
-  transition: all var(--duration-fast) var(--ease-out);
-}
-
-.control-btn:not(:disabled):hover {
-  background: var(--gray-200);
-  color: var(--gray-900);
-  transform: translateY(-1px);
-}
-
-.control-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-/* Number indicators container */
-.page-numbers {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-/* Individual page number button */
-.page-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--gray-600);
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: var(--radius-md);
-  transition: all var(--duration-fast) var(--ease-out);
-}
-
-.page-btn:hover {
-  background: var(--blue-50);
-  color: var(--blue-600);
-}
-
-.page-btn.active {
-  background: var(--gradient-primary);
-  color: var(--white);
-  box-shadow: var(--shadow-blue);
-}
-
-/* Responsive adjustment */
-@media (max-width: 480px) {
-  .pagination-controls {
+/* Pagination container */
+.pagination {
+    display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    align-items: center;
-  }
-  
-  .control-btn {
+    gap: 24px;
     width: 100%;
-  }
+}
+
+/* Activity Items List */
+.pagination-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Activity Glassmorphic Row */
+.pagination-list .activity {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--pag-glass-bg);
+    border: 1px solid var(--pag-glass-border);
+    border-radius: 16px;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    transition: 
+        transform var(--pag-transition),
+        background-color var(--pag-transition),
+        border-color var(--pag-transition),
+        box-shadow var(--pag-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Apple-style gradient slide indicator */
+.pagination-list .activity::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #3b82f6, #06b6d4);
+    opacity: 0.7;
+    transition: opacity var(--pag-transition);
+}
+
+/* Hover effect */
+.pagination-list .activity:hover {
+    transform: translateY(-2px) translateX(4px);
+    background: var(--pag-glass-bg-hover);
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.35),
+        0 0 15px rgba(6, 182, 212, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.pagination-list .activity:hover::before {
+    opacity: 1;
+}
+
+/* Activity text */
+.pagination-list .activity p {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--pag-text-primary);
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+
+/* Empty State / No Tasks solved yet */
+.no-tasks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1.5px dashed rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    color: var(--pag-text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.3px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Pagination Controls container */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Control Buttons styling */
+.pagination-controls button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--pag-text-secondary);
+    background: var(--pag-glass-bg);
+    border: 1px solid var(--pag-glass-border);
+    border-radius: 12px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: 
+        transform var(--pag-transition),
+        background-color var(--pag-transition),
+        border-color var(--pag-transition),
+        color var(--pag-transition),
+        box-shadow var(--pag-transition);
+}
+
+.pagination-controls button:hover {
+    color: var(--pag-text-primary);
+    background: var(--pag-glass-bg-hover);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Active Page Button (matches logic in JSX, we style based on target/state. 
+Since current button triggers currentPage state change, the active class or comparison will be applied. 
+To handle buttons style elegantly we target buttons matching current selection or active state) */
+.pagination-controls button.active,
+.pagination-controls button:focus {
+    color: var(--pag-text-primary);
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+    border-color: var(--pag-border-hover);
+    box-shadow: 
+        0 0 15px var(--pag-glow-cyan),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    outline: none;
+}
+
+.pagination-controls button:active {
+    transform: translateY(-0.5px);
+}
+
+.pagination-controls button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .pagination-controls {
+        gap: 6px;
+    }
+    
+    .pagination-controls button {
+        min-width: 32px;
+        height: 32px;
+        padding: 0 10px;
+        font-size: 0.8rem;
+        border-radius: 8px;
+    }
+    
+    .pagination-list .activity {
+        padding: 12px 18px;
+    }
+    
+    .pagination-list .activity p {
+        font-size: 0.85rem;
+    }
 }
