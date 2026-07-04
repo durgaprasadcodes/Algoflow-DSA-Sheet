@@ -254,8 +254,6 @@
   }
 
   .nav-links {
-    position: static;
-    transform: none;
     gap: 6px;
   }
 

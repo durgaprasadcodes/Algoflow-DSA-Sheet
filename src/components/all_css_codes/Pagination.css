@@ -12,7 +12,7 @@
     --pag-glass-bg-hover: rgba(255, 255, 255, 0.06);
     --pag-glass-border: rgba(255, 255, 255, 0.08);
     --pag-border-hover: rgba(6, 182, 212, 0.4);
-    --pag-text-primary: #f8fafc;
+    --pag-text-primary: #8807f2;
     --pag-text-secondary: #94a3b8;
     --pag-text-cyan: #22d3ee;
     --pag-glow-cyan: rgba(6, 182, 212, 0.25);
@@ -43,10 +43,10 @@
     background: var(--pag-glass-bg);
     border: 1px solid var(--pag-glass-border);
     border-radius: 16px;
-    box-shadow: 
+    box-shadow:
         0 4px 12px rgba(0, 0, 0, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.03);
-    transition: 
+    transition:
         transform var(--pag-transition),
         background-color var(--pag-transition),
         border-color var(--pag-transition),
@@ -73,7 +73,7 @@
     transform: translateY(-2px) translateX(4px);
     background: var(--pag-glass-bg-hover);
     border-color: rgba(6, 182, 212, 0.3);
-    box-shadow: 
+    box-shadow:
         0 8px 24px rgba(0, 0, 0, 0.35),
         0 0 15px rgba(6, 182, 212, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -137,7 +137,7 @@
     cursor: pointer;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transition: 
+    transition:
         transform var(--pag-transition),
         background-color var(--pag-transition),
         border-color var(--pag-transition),
@@ -158,9 +158,9 @@ To handle buttons style elegantly we target buttons matching current selection o
 .pagination-controls button.active,
 .pagination-controls button:focus {
     color: var(--pag-text-primary);
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+    background: linear-gradient(135deg, #a85af2fb 0%, #a85af2fb 100%);
     border-color: var(--pag-border-hover);
-    box-shadow: 
+    box-shadow:
         0 0 15px var(--pag-glow-cyan),
         inset 0 1px 1px rgba(255, 255, 255, 0.1);
     outline: none;
@@ -182,7 +182,7 @@ To handle buttons style elegantly we target buttons matching current selection o
     .pagination-controls {
         gap: 6px;
     }
-    
+
     .pagination-controls button {
         min-width: 32px;
         height: 32px;
@@ -190,11 +190,11 @@ To handle buttons style elegantly we target buttons matching current selection o
         font-size: 0.8rem;
         border-radius: 8px;
     }
-    
+
     .pagination-list .activity {
         padding: 12px 18px;
     }
-    
+
     .pagination-list .activity p {
         font-size: 0.85rem;
     }

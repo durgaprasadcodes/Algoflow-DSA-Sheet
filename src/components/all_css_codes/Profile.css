@@ -1,44 +1,46 @@
 /* 
 ========================================================================
    PREMIUM $15,000 SAAS DASHBOARD - PROFILE STYLESHEET
-   Theme: Dark Navy, Deep Glassmorphism, Apple/Stripe Design Language
+   Theme: Pearl White, Royal Purple, Light Luxury Glassmorphism
    Author: Senior Frontend Engineer
 ========================================================================
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
 /* --- 1. DESIGN SYSTEM & TOKENS --- */
 :root {
-    --bg-base: #030712;
-    --bg-navy-deep: #080f25;
-    --bg-navy-card: rgba(13, 22, 47, 0.45);
-    --bg-navy-hover: rgba(20, 35, 75, 0.6);
-    --primary-cyan: #06b6d4;
-    --primary-blue: #3b82f6;
-    --primary-purple: #6366f1;
+    --bg-base: #f5f3fb;
+    --bg-navy-deep: #ffffff;
+    --bg-navy-card: rgba(255, 255, 255, 0.55);
+    --bg-navy-hover: rgba(255, 255, 255, 0.75);
+    --primary-cyan: #9333ea;
+    --primary-blue: #7c3aed;
+    --primary-purple: #a855f7;
     --accent-red: #ef4444;
-    --accent-red-glow: rgba(239, 68, 68, 0.4);
-    --glow-cyan: rgba(6, 182, 212, 0.25);
-    --glow-blue: rgba(59, 130, 246, 0.3);
-    --glow-purple: rgba(99, 102, 241, 0.2);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --text-cyan: #22d3ee;
-    --text-blue: #60a5fa;
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-bg-bright: rgba(255, 255, 255, 0.07);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-border-hover: rgba(255, 255, 255, 0.16);
+    --accent-red-glow: rgba(239, 68, 68, 0.35);
+    --glow-cyan: rgba(147, 51, 234, 0.16);
+    --glow-blue: rgba(124, 58, 237, 0.14);
+    --glow-purple: rgba(216, 180, 254, 0.35);
+    --text-primary: #1e1b2e;
+    --text-secondary: #635f78;
+    --text-muted: #8b87a0;
+    --text-cyan: #7e22ce;
+    --text-blue: #9333ea;
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-bg-bright: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(147, 51, 234, 0.12);
+    --glass-border-hover: rgba(147, 51, 234, 0.28);
     --glass-blur: blur(25px);
-    --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 16px -6px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    --shadow-sm: 0 2px 8px -1px rgba(124, 58, 237, 0.08);
+    --shadow-md: 0 10px 25px -5px rgba(124, 58, 237, 0.1), 0 8px 16px -6px rgba(30, 27, 46, 0.06);
+    --shadow-lg: 0 25px 50px -12px rgba(124, 58, 237, 0.18);
     --shadow-glow: 0 0 40px -10px var(--primary-blue);
     --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-normal: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-display: 'Outfit', var(--font-sans);
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Sora', var(--font-sans);
 }
 
 /* --- 2. BASE RESET & SCROLLBAR --- */
@@ -59,25 +61,25 @@
 }
 
 .profile-container ::-webkit-scrollbar-track {
-    background: rgba(8, 15, 37, 0.3);
+    background: rgba(147, 51, 234, 0.05);
     border-radius: 10px;
 }
 
 .profile-container ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(147, 51, 234, 0.2);
     border-radius: 10px;
     border: 2px solid transparent;
     background-clip: padding-box;
 }
 
 .profile-container ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(147, 51, 234, 0.35);
     border: 2px solid transparent;
     background-clip: padding-box;
 }
 
 .profile-container ::selection {
-    background: rgba(6, 182, 212, 0.3);
+    background: rgba(147, 51, 234, 0.2);
     color: var(--text-primary);
 }
 
@@ -107,7 +109,7 @@
     right: 0;
     bottom: 0;
     background:
-        radial-gradient(circle at 10% 20%, rgba(8, 15, 37, 0.95) 0%, rgba(3, 7, 18, 0.98) 100%),
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.9) 0%, rgba(245, 243, 251, 0.98) 100%),
         radial-gradient(circle at 80% 20%, var(--glow-cyan) 0%, transparent 50%),
         radial-gradient(circle at 20% 80%, var(--glow-blue) 0%, transparent 50%),
         radial-gradient(circle at 50% 50%, var(--glow-purple) 0%, transparent 60%);
@@ -123,8 +125,8 @@
     right: 0;
     bottom: 0;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+        linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
     opacity: 0.6;
     z-index: -1;
@@ -149,25 +151,27 @@
     align-items: center;
     justify-content: center;
     font-size: clamp(1.5rem, 4vw, 3.5rem);
-    font-weight: 500;
+    font-weight: 700;
     flex: 1;
     color: var(--text-cyan);
     font-family: var(--font-display);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    letter-spacing: -0.5px;
+    text-shadow: 0 1px 2px rgba(124, 58, 237, 0.08);
     animation: fadeIn 1s var(--transition-normal);
 }
 
-.nav-back-btn {
+.nav-back-btn,
+.logout-btn {
     flex: .2;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(147, 51, 234, 0.15);
     border-radius: 14px;
     text-decoration: none;
     cursor: pointer;
@@ -179,21 +183,42 @@
 
 
 .nav-back-btn {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.06) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.85) 100%);
 }
 
 .nav-back-btn:hover {
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(6, 182, 212, 0.4);
-    box-shadow: 0 10px 20px -10px rgba(6, 182, 212, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(147, 51, 234, 0.4);
+    box-shadow: 0 10px 20px -10px rgba(147, 51, 234, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.6);
     color: var(--text-cyan);
 }
 
 
 .nav-back-btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 4px 10px -5px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 4px 10px -5px rgba(147, 51, 234, 0.3);
+}
+
+/* --- 12. LOGOUT BUTTON --- */
+.logout-btn {
+    border: none;
+    color: white;
+    background: linear-gradient(135deg, var(--accent-red) 0%, #b91c1c 100%);
+    animation: slideUp 0.8s var(--transition-normal);
+}
+
+
+
+.logout-btn:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #ff0000 0%, #ff0000 100%);
+    box-shadow: 0 20px 35px var(--accent-red-glow), 0 0 25px #aa3030f8, inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+.logout-btn:active {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px var(--accent-red-glow), 0 0 15px rgba(239, 68, 68, 0.2);
 }
 
 /* --- 5. LAYOUT: MAIN GRID --- */
@@ -224,7 +249,7 @@
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
-    box-shadow: var(--shadow-md), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-md), inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
     transition: transform var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
@@ -235,7 +260,7 @@
     transform: translateY(-8px);
     background: var(--glass-bg-bright);
     border-color: var(--glass-border-hover);
-    box-shadow: var(--shadow-lg), 0 15px 30px -10px rgba(59, 130, 246, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-lg), 0 15px 30px -10px rgba(124, 58, 237, 0.16), inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
 }
 
 /* --- 7. LEFT COLUMN: IMAGE CARD --- */
@@ -244,10 +269,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px;
     border-radius: 30px;
     position: relative;
     overflow: hidden;
+    animation: floatAnimation 6s ease-in-out infinite;
 }
 
 .profile-img::before {
@@ -265,20 +290,19 @@
 }
 
 .profile-img img {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    scale: 1.02;
     object-fit: cover;
-    border: 4px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 30px 5px rgba(6, 182, 212, 0.3), 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 30px 5px rgba(147, 51, 234, 0.22), 0 10px 25px rgba(124, 58, 237, 0.12);
     transition: transform var(--transition-slow), border-color var(--transition-normal);
-    animation: floatAnimation 6s ease-in-out infinite;
 }
 
 .profile-img:hover img {
     transform: scale(1.03) translateY(-3px);
-    border-color: rgba(6, 182, 212, 0.6);
-    box-shadow: 0 0 45px 8px rgba(6, 182, 212, 0.45), 0 15px 30px rgba(0, 0, 0, 0.6);
+    border-color: rgba(147, 51, 234, 0.5);
+    box-shadow: 0 0 45px 8px rgba(147, 51, 234, 0.32), 0 15px 30px rgba(124, 58, 237, 0.18);
 }
 
 /* --- 8. RIGHT COLUMN & CONTAINER --- */
@@ -307,7 +331,7 @@
     right: 0;
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(147, 51, 234, 0.08) 0%, transparent 70%);
     pointer-events: none;
     z-index: -1;
 }
@@ -315,10 +339,10 @@
 .profile-card h1 {
     font-family: var(--font-display);
     font-size: 2.2rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--text-primary);
     letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+    background: linear-gradient(135deg, #4c1d95 0%, #9333ea 60%, #c084fc 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -326,7 +350,7 @@
 .profile-email {
     font-size: 1rem;
     color: var(--text-secondary);
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.2px;
     display: flex;
     align-items: center;
@@ -336,7 +360,7 @@
 .profile-email::before {
     content: "@";
     color: var(--text-blue);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .profile-status {
@@ -355,7 +379,7 @@
     padding: 6px 14px;
     border-radius: 50px;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
@@ -369,8 +393,8 @@
 
 .status-badge.active {
     background: rgba(16, 185, 129, 0.1);
-    color: #34d399;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
 .status-badge.active::before {
@@ -381,8 +405,8 @@
 
 .status-badge.inactive {
     background: rgba(239, 68, 68, 0.1);
-    color: #f87171;
-    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #dc2626;
+    border: 1px solid rgba(239, 68, 68, 0.25);
 }
 
 .status-badge.inactive::before {
@@ -394,13 +418,13 @@
     align-self: flex-start;
     padding: 12px 28px;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #ffffff;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #1d4ed8 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #6d28d9 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 14px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
     position: relative;
     overflow: hidden;
@@ -413,7 +437,7 @@
     left: -50%;
     width: 200%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 100%);
     transform: skewX(-25deg);
     transition: 0.75s ease;
     opacity: 0;
@@ -421,8 +445,8 @@
 
 .update-btn:hover {
     transform: translateY(-3px);
-    background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5), 0 0 12px rgba(6, 182, 212, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.45), 0 0 12px rgba(147, 51, 234, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.35);
 }
 
 .update-btn:hover::after {
@@ -433,7 +457,7 @@
 
 .update-btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.4);
 }
 
 /* --- 10. BOTTOM CARD: PROGRESS --- */
@@ -448,7 +472,7 @@
 .progress h2 {
     font-family: var(--font-display);
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -0.2px;
 }
@@ -459,13 +483,13 @@
 }
 
 .complted-problems b {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .complted-problems span {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
     color: var(--text-cyan);
     margin-right: 2px;
 }
@@ -473,10 +497,10 @@
 .progress-bar-container {
     width: 100%;
     height: 18px;
-    background: rgba(8, 15, 37, 0.6);
+    background: rgba(147, 51, 234, 0.08);
     border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(147, 51, 234, 0.1);
+    box-shadow: inset 0 2px 4px rgba(124, 58, 237, 0.1);
     overflow: hidden;
     position: relative;
 }
@@ -484,10 +508,10 @@
 .progress-bar-fill {
     height: 100%;
     border-radius: 50px;
-    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-cyan) 50%, var(--primary-blue) 100%);
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-cyan) 50%, var(--primary-purple) 100%);
     background-size: 200% auto;
     position: relative;
-    box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.35);
     animation: gradientShift 3s linear infinite, progressFillAnimation 1.5s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
 }
 
@@ -498,7 +522,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.5) 70%, rgba(255, 255, 255, 0) 100%);
     background-size: 100px 100%;
     animation: shineEffect 2s linear infinite;
 }
@@ -516,7 +540,7 @@
 .profile-part2 h2 {
     font-family: var(--font-display);
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -0.2px;
 }
@@ -541,10 +565,10 @@
     height: 40px;
     padding: 0 14px;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(147, 51, 234, 0.04);
+    border: 1px solid rgba(147, 51, 234, 0.1);
     border-radius: 10px;
     cursor: pointer;
     transition: all var(--transition-fast);
@@ -554,18 +578,18 @@
 .profile-part2 .page-link:hover,
 .profile-part2 .page-item button:hover:not(:disabled) {
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(147, 51, 234, 0.1);
+    border-color: rgba(147, 51, 234, 0.25);
     transform: translateY(-2px);
 }
 
 .profile-part2 .pagination-btn.active,
 .profile-part2 .page-link.active,
 .profile-part2 .page-item.active button {
-    color: var(--text-primary);
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
-    border-color: rgba(6, 182, 212, 0.5);
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+    border-color: rgba(147, 51, 234, 0.6);
+    box-shadow: 0 0 15px rgba(147, 51, 234, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25);
 }
 
 .profile-part2 .pagination-btn:disabled,
@@ -575,57 +599,6 @@
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
-}
-
-/* --- 12. LOGOUT BUTTON --- */
-.logout-btn {
-    margin-top: 40px;
-    width: 220px;
-    height: 60px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #ffffff;
-    background: linear-gradient(135deg, var(--accent-red) 0%, #991b1b 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 18px;
-    cursor: pointer;
-    box-shadow: 0 10px 25px -5px var(--accent-red-glow), 0 8px 16px -6px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.15);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal), background var(--transition-normal);
-    position: relative;
-    overflow: hidden;
-    animation: slideUp 0.8s var(--transition-normal);
-}
-
-.logout-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 100%);
-    transform: skewX(-20deg);
-    opacity: 0;
-}
-
-.logout-btn:hover {
-    transform: translateY(-5px);
-    background: linear-gradient(135deg, #f87171 0%, #b91c1c 100%);
-    box-shadow: 0 20px 35px var(--accent-red-glow), 0 0 25px rgba(239, 68, 68, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25);
-}
-
-.logout-btn:hover::after {
-    left: 125%;
-    opacity: 1;
-    transition: left 0.8s ease, opacity 0.8s ease;
-}
-
-.logout-btn:active {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px var(--accent-red-glow), 0 0 15px rgba(239, 68, 68, 0.2);
 }
 
 /* --- 13. ANIMATIONS & KEYFRAMES --- */

@@ -1,8 +1,5 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import "./all_css_codes/Profile.css"
-import { Line } from 'react-chartjs-2';
-import demo from '../assets/demo.jpg'
-import { useEffect, useState } from 'react';
 import Pagination from './Pagination';
 import { data as problemsData } from '../data/data';
 
@@ -21,7 +18,7 @@ export default function Profile() {
             "Are you sure you want to log out? You can lose all your progress!"
         );
         if (ok) {
-            localStorage.removeItem("user_info");
+            localStorage.clear();
             navigate("/login", { replace: true });
         }
     };
@@ -49,11 +46,12 @@ export default function Profile() {
             <div className="profile-nav">
                 <button onClick={() => navigate(-1)} className="nav-back-btn">← Go Back</button>
                 <h1>Profile Page</h1>
+                <button className="logout-btn" onClick={handleLogout}>Log Out</button>
             </div>
             <div className="profile-part">
                 <div className="main-profile">
                     <div className="profile-img">
-                        <img src={demo} alt="demo-img" />
+                        <img src="https://i.pinimg.com/736x/f5/45/52/f54552354fa7d1ca346638ea3d8912cf.jpg" alt="profile-img" />
                     </div>
                     <div className="profile-part1">
                         <div className="profile-card">
@@ -82,7 +80,6 @@ export default function Profile() {
                     <Pagination />
                 </div>
             </div>
-            <button className="logout-btn" onClick={handleLogout}>Log Out</button>
         </div>
     )
 }

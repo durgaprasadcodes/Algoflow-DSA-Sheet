@@ -1,13 +1,3 @@
-/* =====================================================
-   Animated Border
-===================================================== */
-
-@property --angle {
-    syntax: "<angle>";
-    inherits: false;
-    initial-value: 0deg;
-}
-
 .auth-border {
 
     --angle: 0deg;
@@ -22,62 +12,12 @@
 
     border-radius: 28px;
 
-    background:
-        conic-gradient(from var(--angle),
-            transparent 0deg,
-            rgba(96, 165, 250, .05) 210deg,
-            #2563eb 260deg,
-            #60a5fa 290deg,
-            #ffffff 315deg,
-            #93c5fd 335deg,
-            transparent 360deg);
-
-    animation: borderRotate 5s linear infinite;
-
     box-shadow:
-        0 0 20px rgba(37, 99, 235, .12),
-        0 0 60px rgba(96, 165, 250, .12),
+        0 0 20px rgba(124, 58, 237, .12),
+        0 0 60px rgba(168, 85, 247, .12),
         inset 0 0 15px rgba(255, 255, 255, .3);
 }
 
-.auth-border::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: -18px;
-
-    border-radius: 34px;
-
-    background:
-        radial-gradient(circle at top,
-            rgba(59, 130, 246, .28),
-            transparent 70%);
-
-    filter: blur(35px);
-
-    z-index: -2;
-}
-
-.auth-border::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: -2px;
-
-    border-radius: 28px;
-
-    background: inherit;
-
-    filter: blur(18px);
-
-    opacity: .55;
-
-    z-index: -1;
-}
 
 /* =====================================================
    Card
@@ -106,74 +46,22 @@
     background:
         linear-gradient(145deg,
             rgba(255, 255, 255, .82),
-            rgba(248, 250, 255, .72));
+            rgba(250, 248, 255, .72));
 
     border: 1px solid rgba(255, 255, 255, .55);
 
     box-shadow:
 
-        0 20px 45px rgba(15, 23, 42, .08),
+        0 20px 45px rgba(30, 27, 46, .08),
 
-        0 40px 90px rgba(37, 99, 235, .12),
+        0 40px 90px rgba(124, 58, 237, .12),
 
         inset 0 1px 0 rgba(255, 255, 255, .8);
 
     animation: cardFloat 6s ease-in-out infinite;
 
-    font-family: "Inter", sans-serif;
-}
+    font-family: "Plus Jakarta Sans", "Inter", sans-serif;
 
-/* =====================================================
-   Noise Layer
-===================================================== */
-
-.authentication::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background-image:
-        radial-gradient(rgba(255, 255, 255, .18) 1px, transparent 1px);
-
-    background-size: 6px 6px;
-
-    opacity: .18;
-
-    pointer-events: none;
-}
-
-.authentication::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: -130px;
-
-    right: -100px;
-
-    width: 260px;
-
-    height: 260px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(circle,
-            rgba(59, 130, 246, .30),
-            transparent 72%);
-
-    filter: blur(12px);
-}
-
-.authentication>* {
-
-    position: relative;
-
-    z-index: 2;
 }
 
 /* =====================================================
@@ -193,7 +81,7 @@
     transition: .45s;
 
     filter:
-        drop-shadow(0 18px 24px rgba(37, 99, 235, .25));
+        drop-shadow(0 18px 24px rgba(124, 58, 237, .25));
 }
 
 .authentication img:hover {
@@ -219,11 +107,13 @@
 
     letter-spacing: -.04em;
 
+    font-family: "Sora", "Inter", sans-serif;
+
     background:
         linear-gradient(135deg,
-            #1d4ed8,
-            #60a5fa,
-            #2563eb);
+            #6d28d9,
+            #a855f7,
+            #7c3aed);
 
     -webkit-background-clip: text;
 
@@ -236,7 +126,7 @@
 
     text-align: center;
 
-    color: #64748b;
+    color: #635f78;
 
     font-size: .93rem;
 
@@ -249,7 +139,7 @@
 
     font-weight: 700;
 
-    color: #2563eb;
+    color: #7c3aed;
 
     letter-spacing: .3px;
 }
@@ -264,7 +154,7 @@
 
     border-radius: 16px;
 
-    border: 1px solid rgba(191, 219, 254, .8);
+    border: 1px solid rgba(216, 180, 254, .8);
 
     background:
         rgba(255, 255, 255, .75);
@@ -280,27 +170,27 @@
 
 .authentication input::placeholder {
 
-    color: #94a3b8;
+    color: #8b87a0;
 }
 
 .authentication input:hover {
 
-    border-color: #60a5fa;
+    border-color: #a855f7;
 }
 
 .authentication input:focus {
 
     transform: translateY(-3px);
 
-    border-color: #3b82f6;
+    border-color: #9333ea;
 
     background: white;
 
     box-shadow:
 
-        0 0 0 4px rgba(59, 130, 246, .12),
+        0 0 0 4px rgba(147, 51, 234, .12),
 
-        0 10px 24px rgba(59, 130, 246, .08);
+        0 10px 24px rgba(147, 51, 234, .08);
 }
 
 /* =====================================================
@@ -331,18 +221,20 @@
 
     letter-spacing: .3px;
 
+    font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+
     background:
 
         linear-gradient(135deg,
-            #1d4ed8,
-            #3b82f6,
-            #60a5fa);
+            #6d28d9,
+            #9333ea,
+            #a855f7);
 
     transition: .35s;
 
     box-shadow:
 
-        0 18px 35px rgba(37, 99, 235, .28);
+        0 18px 35px rgba(124, 58, 237, .28);
 }
 
 .authentication button::before {
@@ -381,7 +273,7 @@
 
     box-shadow:
 
-        0 24px 45px rgba(37, 99, 235, .35);
+        0 24px 45px rgba(124, 58, 237, .35);
 }
 
 .authentication button:active {
@@ -410,19 +302,6 @@
 /* =====================================================
    Animations
 ===================================================== */
-
-@keyframes borderRotate {
-
-    from {
-
-        --angle: 0deg;
-    }
-
-    to {
-
-        --angle: 360deg;
-    }
-}
 
 @keyframes cardFloat {
 
